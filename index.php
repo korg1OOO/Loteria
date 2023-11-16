@@ -52,55 +52,68 @@
     }
 
     function escolhas($numeros_apostados, $num_max){
-        $aposta = 1;
+        $aposta = 0;
         while($aposta <= $numeros_apostados){
-            $array_escolha[$aposta-1] = array(readline("Escolha o número $aposta\n"));
-            if($array_escolha[$aposta-1] < 1 || $array_escolha[$aposta-1] > $num_max){
-                $array_escolha[$aposta-1] = array(readline("Certifique-se de escolher apenas números entre 1 e 60.\nEscolha o número $aposta novamente\n"));
-            }
+            $array_escolha = array(readline("Escolha o número $aposta\n"));
             $aposta = $aposta+1;
         }
-        print_r($array_escolha);
+        sort($array_escolha);
+        #TRANSFORMAR A ARRAY EM STRING E PRINTAR A STRING
     }
 
     function sorteio($escolher_jogo){
         if($escolher_jogo = 1){
             $i = 0;
-            while($i < 6){
-            $array_sorteio[$i] = array(rand(1, 60));
-            $i++;
+            $num_sorteados = 6;
+            while($i < $num_sorteados){
+                $array_sorteio[$i] = array(rand(1,60));
+                $i++;
             }
-            print_r($array_sorteio);
+            ordenar_sorteio($num_sorteados, $array_sorteio);
         }
         else if($escolher_jogo = 2){
             $i = 0;
-            while($i < 5){
+            $num_sorteados = 5;
+            while($i < $num_sorteados){
             $array_sorteio[$i] = array(rand(1, 80));
             $i++;
             }
-            print_r($array_sorteio);
+            ordenar_sorteio($num_sorteados, $array_sorteio);
             }
         else if($escolher_jogo = 3){
             $i = 0;
-            while($i < 20){
+            $num_sorteados = 20;
+            while($i < $num_sorteados){
             $array_sorteio[$i] = array(rand(1, 100));
             $i++;
             }
-            print_r($array_sorteio);
+            ordenar_sorteio($num_sorteados, $array_sorteio);
             }
         else if($escolher_jogo = 4){
             $i = 0;
-            while($i < 15){
+            $num_sorteados = 15;
+            while($i < $num_sorteados){
             $array_sorteio[$i] = array(rand(1, 25));
             $i++;
             }
-            print_r($array_sorteio);
+            ordenar_sorteio($num_sorteados, $array_sorteio);
+            }
+        }
+
+        function ordenar_sorteio($num_sorteados, $array_sorteio){
+            sort($array_sorteio);
+            for($x = 0; $x < $num_sorteados; $x++) {
+            echo $array_sorteio[$x];
             }
         }
 
     function comparar($numeros_apostados, $escolher_jogo, $num_max){
         escolhas($numeros_apostados, $num_max);
         sorteio($escolher_jogo);
+    }
+
+    function preco(){
+        #CALCULAR PRECO GASTO
     }
     
     gamemode();
