@@ -80,8 +80,10 @@
     }
 
     function comparar($qtd_num_apostados, $escolher_jogo, $num_max, $num_apostas, $num_sorteados){
-        escolhas($qtd_num_apostados, $num_max, $num_apostas);
-        sorteio($num_sorteados, $num_max);
+        $array_escolha = escolhas($qtd_num_apostados, $num_max, $num_apostas);
+        $array_sorteio = sorteio($num_sorteados, $num_max);
+        acertos($array_escolha, $array_sorteio);
+
     }
 
     function sorteio($num_sorteados, $num_max){
@@ -97,6 +99,7 @@
         sort($array_sorteio);
         echo "Números vencedores: ";
         echo implode(', ', $array_sorteio) . PHP_EOL;
+        return $array_sorteio;
     }
 
     function escolhas($qtd_num_apostados, $num_max, $num_apostas) {
@@ -115,10 +118,21 @@
             echo "\nSeus números: ";
             echo implode(', ', $array_escolha) . PHP_EOL;
             $loop_apostas++;
+            return $array_escolha;
     }
 
-
-
+    function acertos($array_escolha, $array_sorteio){
+        $numeros_acertados = array_intersect($array_escolha, $array_sorteio);
+    
+        echo "Números acertados: ";
+        if (empty($numeros_acertados)) {
+            echo "Nenhum acerto.";
+        } else {
+            echo implode(', ', $numeros_acertados);
+        }
+        echo PHP_EOL;
+        echo "\n";
+    }
 
     function preco($escolher_jogo, $qtd_num_apostados){
         if($escolher_jogo == 1){
