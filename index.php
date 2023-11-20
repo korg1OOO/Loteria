@@ -1,6 +1,7 @@
 <?php
     function start(){
-        $escolher_jogo = (int) readline("Escolha o modo de jogo. Digite:\n1- Mega-Sena\n2- Quina\n3- Lotomania\n4- Lotofácil\n");
+        echo "Escolha o modo de jogo. Digite:\n 1-Mega-Sena\n 2-Quina\n 3-Lotomania\n 4-Lotofácil\n\n";
+        $escolher_jogo = (int) readline("");
         if($escolher_jogo == 1){
             mega($escolher_jogo);
         }
@@ -22,7 +23,7 @@
         $num_max = 60;
         $num_sorteados = 6;
         $max_escolha = 20;
-        echo "Você selecionou Mega-Sena.\nVocê pode escolher 6-20 números entre 1 e 60.\nO maior prêmio vem ao acertar 6 números, mas você também pode ganhar com 4 ou 5 acertos. Hora de fazer suas apostas!\n\n";
+        echo "\n\nVocê selecionou Mega-Sena.\nVocê pode escolher 6-20 números entre 1 e 60.\nO maior prêmio vem ao acertar 6 números, mas você também pode ganhar com 4 ou 5 acertos. Hora de fazer suas apostas!\n\n";
         apostas($max_escolha, $escolher_jogo, $num_max, $num_sorteados);
     }
 
@@ -30,7 +31,7 @@
         $num_max = 80;
         $num_sorteados = 5;
         $max_escolha = 15;
-        echo "Você selecionou Quina.\nVocê pode escolher 5-15 números entre 1 e 80.\nO maior prêmio vem ao acertar 5 números, mas você também pode ganhar com 2, 3 ou 4 acertos. Hora de fazer suas apostas!\n\n";
+        echo "\n\nVocê selecionou Quina.\nVocê pode escolher 5-15 números entre 1 e 80.\nO maior prêmio vem ao acertar 5 números, mas você também pode ganhar com 2, 3 ou 4 acertos. Hora de fazer suas apostas!\n\n";
         apostas($max_escolha, $escolher_jogo, $num_max, $num_sorteados);
     }
     
@@ -38,7 +39,7 @@
         $num_max = 100;
         $num_sorteados = 20;
         $max_escolha = 50;
-        echo "Você selecionou Lotomania.\nVocê pode escolher 50 números entre 1 e 100.\nO maior prêmio vem ao acertar 20 números, mas você também pode ganhar com 15, 16, 17, 18 ou 19 acertos. Hora de fazer suas apostas!\n\n";
+        echo "\n\nVocê selecionou Lotomania.\nVocê pode escolher 50 números entre 1 e 100.\nO maior prêmio vem ao acertar 20 números, mas você também pode ganhar com 15, 16, 17, 18 ou 19 acertos. Hora de fazer suas apostas!\n\n";
         apostas($max_escolha, $escolher_jogo, $num_max, $num_sorteados);
     }
 
@@ -46,7 +47,7 @@
         $num_max = 25;
         $num_sorteados = 15;
         $max_escolha = 20;
-        echo "Você selecionou Lotofácil.\nVocê pode escolher 15-20 números entre 1 e 25.\nO maior prêmio vem ao acertar 15 números, mas você também pode ganhar com 11, 12, 13 ou 14 acertos. Hora de fazer suas apostas!\n\n";
+        echo "\n\nVocê selecionou Lotofácil.\nVocê pode escolher 15-20 números entre 1 e 25.\nO maior prêmio vem ao acertar 15 números, mas você também pode ganhar com 11, 12, 13 ou 14 acertos. Hora de fazer suas apostas!\n\n";
         apostas($max_escolha, $escolher_jogo, $num_max, $num_sorteados);
     }
 
@@ -62,7 +63,8 @@
                 $i++;
             }
             else{
-                $qtd_num_apostados = (int) readline("\n\nVocê pode escolher de $num_sorteados a $max_escolha números.\nQuantas dezenas deseja escolher?");
+                echo "\n\nVocê pode escolher de $num_sorteados a $max_escolha números.\n";
+                $qtd_num_apostados = (int) readline("Quantas dezenas deseja escolher? ");
                 certificacao($qtd_num_apostados, $num_sorteados, $max_escolha, $escolher_jogo, $num_max, $num_apostas);
                 $i++;
                 }
@@ -138,111 +140,111 @@
         if($escolher_jogo == 1){
             switch ($qtd_num_apostados) {
                 case 6:
-                    echo "Preço total: R$5,00";
+                    echo "Preço total: R$5,00\n";
                     break;
                 case 7:
-                    echo "Preço total: R$35,00";
+                    echo "Preço total: R$35,00\n";
                     break;
                 case 8:
-                    echo "Preço total: R$140,00";
+                    echo "Preço total: R$140,00\n";
                     break;
                 case 9:
-                    echo "Preço total: R$420,00";
+                    echo "Preço total: R$420,00\n";
                     break;
                 case 10:
-                    echo "Preço total: R$1.050,00";
+                    echo "Preço total: R$1.050,00\n";
                     break;
                 case 11:
-                    echo "Preço total: R$2.310,00";
+                    echo "Preço total: R$2.310,00\n";
                     break;
                 case 12:
-                    echo "Preço total: R$4.620,00";
+                    echo "Preço total: R$4.620,00\n";
                     break;
                 case 13:
-                    echo "Preço total: R$8.580,00";
+                    echo "Preço total: R$8.580,00\n";
                     break;
                 case 14:
-                    echo "Preço total: R$15.015,00";
+                    echo "Preço total: R$15.015,00\n";
                     break;
                 case 15:
-                    echo "Preço total: R$25.025,00";
+                    echo "Preço total: R$25.025,00\n";
                     break;
                 case 16:
-                    echo "Preço total: R$40.040,00";
+                    echo "Preço total: R$40.040,00\n";
                     break;
                 case 17:
-                    echo "Preço total: R$61.880,00";
+                    echo "Preço total: R$61.880,00\n";
                     break;
                 case 18:
-                    echo "Preço total: R$92.820,00";
+                    echo "Preço total: R$92.820,00\n";
                     break;
                 case 19:
-                    echo "Preço total: R$135.660,00";
+                    echo "Preço total: R$135.660,00\n";
                     break;
                 case 20:
-                    echo "Preço total: R$193.800,00";
+                    echo "Preço total: R$193.800,00\n";
                     break;
                 }
             }
             else if($escolher_jogo == 2){
                 switch ($qtd_num_apostados) {
                     case 5:
-                        echo "Preço total: R$2,50";
+                        echo "Preço total: R$2,50\n";
                         break;
                     case 6:
-                        echo "Preço total: R$15,00";
+                        echo "Preço total: R$15,00\n";
                         break;
                     case 7:
-                        echo "Preço total: R$52,50";
+                        echo "Preço total: R$52,50\n";
                         break;
                     case 8:
-                        echo "Preço total: R$140,00";
+                        echo "Preço total: R$140,00\n";
                         break;
                     case 9:
-                        echo "Preço total: R$315,00";
+                        echo "Preço total: R$315,00\n";
                         break;
                     case 10:
-                        echo "Preço total: R$630,00";
+                        echo "Preço total: R$630,00\n";
                         break;
                     case 11:
-                        echo "Preço total: R$1.155,00";
+                        echo "Preço total: R$1.155,00\n";
                         break;
                     case 12:
-                        echo "Preço total: R$1.980,00";
+                        echo "Preço total: R$1.980,00\n";
                         break;
                     case 13:
-                        echo "Preço total: R$3.217,50";
+                        echo "Preço total: R$3.217,50\n";
                         break;
                     case 14:
-                        echo "Preço total: R$5.005,00";
+                        echo "Preço total: R$5.005,00\n";
                         break;
                     case 15:
-                        echo "Preço total: R$7.507,50";
+                        echo "Preço total: R$7.507,50\n";
                         break;
                 }
         }
         else if($escolher_jogo == 3){
-                echo "Preço total: R$3,00";
+                echo "Preço total: R$3,00\n";
         }
         else {
             switch ($qtd_num_apostados) {
                 case 15:
-                    echo "Preço total: R$3,00";
+                    echo "Preço total: R$3,00\n";
                     break;
                 case 16:
-                    echo "Preço total: R$48,00";
+                    echo "Preço total: R$48,00\n";
                     break;
                 case 17:
-                    echo "Preço total: R$408,00";
+                    echo "Preço total: R$408,00\n";
                     break;
                 case 18:
-                    echo "Preço total: R$2.448,00";
+                    echo "Preço total: R$2.448,00\n";
                     break;
                 case 19:
-                    echo "Preço total: R$11.628,00";
+                    echo "Preço total: R$11.628,00\n";
                     break;
                 case 20:
-                    echo "Preço total: R$46.512,00";
+                    echo "Preço total: R$46.512,00\n";
                     break;
             }
         }
